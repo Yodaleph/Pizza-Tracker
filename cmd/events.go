@@ -23,7 +23,7 @@ func (h *Handler) notificationHandler(c *gin.Context) {
 	h.notificationManager.AddClient(key, client)
 	defer func () {
 		h.notificationManager.RemoveClient(key, client)
-		slog.Info("Customer client disconnected", "orderId, oderID")
+		slog.Info("Customer client disconnected", "orderId", orderID)
 	}()
 	h.streamSSE(c, client)
  }
